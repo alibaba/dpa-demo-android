@@ -5,7 +5,7 @@ android {
 
     defaultConfig {
         applicationId "alibaba.man_android_demo"
-        minSdkVersion 10
+        minSdkVersion 14
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -27,10 +27,10 @@ dependencies {
     //noinspection GradleCompatible
     implementation 'com.android.support:appcompat-v7:28.0.0'
 
-    implementation 'com.aliyun.ams:alicloud-android-man:1.2.5'
+    implementation 'com.aliyun.ams:alicloud-android-man:1.2.7'
     //公共依赖库
-    implementation 'com.aliyun.ams:alicloud-android-utdid:2.5.2'
+    implementation 'com.aliyun.ams:alicloud-android-utdid:2.6.0'
     implementation 'com.aliyun.ams:alicloud-android-utils:2.0.0'
     implementation 'com.aliyun.ams:alicloud-android-ut:5.4.4'
-    implementation 'com.aliyun.ams:alicloud-android-beacon:1.0.7'
+    implementation 'com.aliyun.ams:alicloud-android-beacon:1.0.8'
 }

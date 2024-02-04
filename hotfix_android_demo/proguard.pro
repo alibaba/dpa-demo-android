@@ -32,3 +32,6 @@
     public <init>();
 }
 -keep class com.alibaba.sophix.demo.SophixStubApplication$RealApplicationStub
+-keepclassmembers class com.alibaba.sophix.demo.SOFixDemo {
+  native *** test*(...);
+}

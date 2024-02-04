@@ -6,6 +6,8 @@ import android.util.Log;
 import com.alibaba.ha.adapter.AliHaAdapter;
 import com.alibaba.ha.adapter.AliHaConfig;
 import com.alibaba.ha.adapter.Plugin;
+import com.alibaba.ha.adapter.service.tlog.TLogLevel;
+import com.alibaba.ha.adapter.service.tlog.TLogService;
 import com.alibaba.ha.protocol.crash.ErrorCallback;
 import com.alibaba.ha.protocol.crash.ErrorInfo;
 
@@ -24,6 +26,7 @@ public class MyApplication extends Application {
     }
 
     private void initHa() {
+        AliHaAdapter.getInstance().preStart(this);
         Log.e("ha", "init");
 
         //ha init
@@ -47,12 +50,14 @@ public class MyApplication extends Application {
                 return map;
             }
         });
-        AliHaAdapter.getInstance().addPlugin(Plugin.crashreporter);    //崩溃分析，如不需要可注释掉
-        AliHaAdapter.getInstance().addPlugin(Plugin.apm);              //性能监控，如不需要可注释掉
+        AliHaAdapter.getInstance().addPlugin(Plugin.networkmonitor);
+        //启动CrashReporter
+        AliHaAdapter.getInstance().addPlugin(Plugin.crashreporter);
+        AliHaAdapter.getInstance().addPlugin(Plugin.apm);
         AliHaAdapter.getInstance().addPlugin(Plugin.tlog);             //移动日志，如不需要可注释掉
-
         AliHaAdapter.getInstance().openDebug(true);          //调试日志开关
 
         AliHaAdapter.getInstance().start(config);                     //启动
+        TLogService.updateLogLevel(TLogLevel.DEBUG); //配置项：控制台可拉取的日志级别
     }
 }

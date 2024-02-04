@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.aliyun.emas.networkmonitor'
 
 android {
     compileSdkVersion 30
@@ -31,17 +32,12 @@ dependencies {
     //测试库：模拟jni层Crash，实际工程不需要接入
     implementation(name: 'native_crash_test-1.0.0.1', ext: 'aar')
 
-    //Maven依赖
-    //1、公共依赖
-    implementation('com.aliyun.ams:alicloud-android-ha-adapter:1.1.5.4-open') { transitive = true }
+    implementation 'com.squareup.okhttp3:okhttp:3.14.7'
+    //线上测试
+    implementation 'com.aliyun.ams:alicloud-android-ha-adapter:1.2.3.0-open'
+    implementation 'com.aliyun.ams:alicloud-android-apm:1.1.3.0-open'
+    implementation 'com.aliyun.ams:alicloud-android-rest:1.7.3-open'
 
-    //2、崩溃分析，不接入可注释掉
-    implementation('com.aliyun.ams:alicloud-android-ha-crashreporter:1.3.0') { transitive = true }
-
-    //3、移动日志，不接入可注释掉
-    implementation('com.aliyun.ams:alicloud-android-tlog:1.1.4.5-open') { transitive = true }
-
-    //4、性能监控，不接入可注释掉
-    implementation('com.aliyun.ams:alicloud-android-apm:1.1.1.0-open') { transitive = true }
-
+    implementation 'com.aliyun.ams:alicloud-android-ha-crashreporter:1.8.0'
+    implementation 'com.aliyun.ams:alicloud-android-tlog:1.1.7.0-open'
 }

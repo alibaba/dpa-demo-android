@@ -4,10 +4,21 @@ buildscript {
     repositories {
         google()
         jcenter()
+        maven{
+            allowInsecureProtocol = true
+            url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/repositories/releases/'
+            name 'aliyun'//一定要添加这个配置
+            allowInsecureProtocol = true
+        }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.0.0'
-
+        classpath 'com.android.tools.build:gradle:7.3.0'
+        classpath 'com.guardsquare:proguard-gradle:7.1.0'
+        classpath 'com.google.gms:google-services:4.3.12'
+        //移动监控需要，其他功能可以注释
+        classpath 'com.aliyun.ams:alicloud-android-networkmonitor-plugin:1.3.0-open'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -17,7 +28,15 @@ allprojects {
     repositories {
         google()
         jcenter()
-        maven {url 'http://maven.aliyun.com/nexus/content/repositories/releases/'}
+        maven {url 'https://maven.aliyun.com/nexus/content/repositories/releases/'}
+        maven {
+            url "http://nexus-ce.emas-poc.com/repository/maven-public/"
+            credentials {
+                username = "CenterExperience"
+                password = "77kkyy99"
+            }
+            allowInsecureProtocol = true
+        }
         maven { url 'https://developer.huawei.com/repo/'}
         flatDir {
             dirs 'libs'

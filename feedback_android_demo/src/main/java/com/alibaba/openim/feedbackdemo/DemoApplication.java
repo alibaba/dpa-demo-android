@@ -80,7 +80,7 @@ public class DemoApplication extends Application {
         FeedbackAPI.setDefaultUserContactInfo("13800000000");
         //沉浸式任务栏，控制台设置为true之后此方法才能生效
         FeedbackAPI.setTranslucent(true);
-        //设置返回按钮图标
+        //设置返回按钮图标---可在查看线上版本查看效果
         FeedbackAPI.setBackIcon(R.drawable.ali_feedback_common_back_btn_bg);
         //设置标题栏"历史反馈"的字号，需要将控制台中此字号设置为0
         FeedbackAPI.setHistoryTextSize(20);

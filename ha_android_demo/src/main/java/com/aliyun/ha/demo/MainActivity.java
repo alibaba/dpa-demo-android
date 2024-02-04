@@ -2,7 +2,9 @@ package com.aliyun.ha.demo;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -10,13 +12,19 @@ import android.widget.Toast;
 
 import com.alibaba.ha.adapter.AliHaAdapter;
 import com.alibaba.ha.adapter.service.tlog.TLogService;
-import com.alibaba.motu.tbrest.utils.DeviceUtils;
+import com.ut.device.UTDevice;
 
+import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.UUID;
 
 import crashreporter.motu.alibaba.com.tbcrashreporter4androiddemo.NativeCrashTest;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -63,7 +71,31 @@ public class MainActivity extends AppCompatActivity {
                 AliHaAdapter.getInstance().reportCustomError(new NullPointerException());
             }
         });
+        findViewById(R.id.netapm).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MainActivity.this,"请求网络",Toast.LENGTH_SHORT).show();
+                OkHttpClient client = new OkHttpClient();
+                Request request = new Request.Builder()
+                        .url("https://www.baidu.com")
+                        .build();
+                Call call = client.newCall(request);
+                call.enqueue(new Callback() {
+                    @Override
+                    public void onFailure(@NonNull Call call, @NonNull IOException e) {
+                        Log.e("getSync","失败");
+                    }
 
+                    @Override
+                    public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+                        String msg = response.message();
+                        if (!TextUtils.isEmpty(msg)) {
+                            Log.e("getSync",msg);
+                        }
+                    }
+                });
+            }
+        });
         //打 tlog日志
         Button remoteDebugBtn = (Button) findViewById(R.id.logPrint);
         remoteDebugBtn.setOnClickListener(new View.OnClickListener() {
@@ -92,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
                 //上传
                 startLog(getApplication().getApplicationContext());
 
-                Toast.makeText(MainActivity.this, "主动上报今天的日志完成，当前设备ID为：" + DeviceUtils.getUtdid(getApplication().getApplicationContext()),
+                Toast.makeText(MainActivity.this, "主动上报今天的日志完成，当前设备ID为：" + UTDevice.getUtdid(getApplication().getApplicationContext()),
                         Toast.LENGTH_SHORT).show();
             }
         });
