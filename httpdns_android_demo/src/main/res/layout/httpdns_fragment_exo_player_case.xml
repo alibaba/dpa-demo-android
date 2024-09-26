@@ -93,8 +93,7 @@
                     android:layout_height="wrap_content"
                     android:text="@{viewModel.hostAndTime}"
                     android:textColor="#3D3D3D"
-                    android:textSize="12sp"
-                    tools:text="www.aliyun.com (38ms)" />
+                    android:textSize="12sp"/>
 
                 <TextView
                     android:id="@+id/tvTtl"

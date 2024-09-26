@@ -36,7 +36,7 @@ class IPConnCaseViewModel(application: Application) : ResolveResultViewModel(app
     val responseStr = SingleLiveData<String>().apply { value = "" }
 
     val ipConnUrl = SingleLiveData<String>().apply {
-        value = "https://suggest.taobao.com/sug?code=utf-8&q=phone"
+        value = "https://ams-sdk-public-assets.oss-cn-hangzhou.aliyuncs.com/example-resources.txt"
     }
 
     val showRequestAndResolveResult = SingleLiveData<Boolean>().apply { value = false }

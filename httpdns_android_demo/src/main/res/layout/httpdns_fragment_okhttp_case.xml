@@ -188,7 +188,6 @@
                         android:id="@+id/tvHostAndTime"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        tools:text="www.aliyun.com (38ms)"
                         android:text="@{viewModel.hostAndTime}"
                         android:textSize="12sp"
                         android:textColor="#3D3D3D"/>

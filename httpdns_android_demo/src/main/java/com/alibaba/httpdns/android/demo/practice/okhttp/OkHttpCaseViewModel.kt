@@ -29,7 +29,7 @@ class OkHttpCaseViewModel(application: Application) : ResolveResultViewModel(app
 
     private var schemaType: SchemaType = SchemaType.HTTPS
 
-    val path = SingleLiveData<String>().apply { value = "/document_detail/434554.html" }
+    val path = SingleLiveData<String>().apply { value = "/example-resources.txt" }
 
     val showRequestAndResolveResult = SingleLiveData<Boolean>().apply { value = false }
 
@@ -39,7 +39,7 @@ class OkHttpCaseViewModel(application: Application) : ResolveResultViewModel(app
 
     private var response: Response? = null
     fun initData() {
-        host.value = "help.aliyun.com"
+        host.value = "ams-sdk-public-assets.oss-cn-hangzhou.aliyuncs.com"
         okHttpClient = OkHttpClient.Builder()
             .connectionPool(ConnectionPool(0, 10 * 1000, TimeUnit.MICROSECONDS))
             .hostnameVerifier { _, _ -> true }
@@ -59,13 +59,14 @@ class OkHttpCaseViewModel(application: Application) : ResolveResultViewModel(app
                             )
                         )
                     }
+
                     if (inetAddresses.isEmpty()) {
                         log(
                             this@OkHttpCaseViewModel,
                             getApplication<HttpDnsApplication>().getString(R.string.log_dns_resolve_fail)
                         )
                         try {
-                            val localResolveResult = Dns.SYSTEM.lookup("help.aliyun111.com")
+                            val localResolveResult = Dns.SYSTEM.lookup(hostname)
                             inetAddresses.addAll(localResolveResult)
                         }catch (e: Exception) {
                             log(
@@ -125,7 +126,6 @@ class OkHttpCaseViewModel(application: Application) : ResolveResultViewModel(app
                     response = Response(code, bodyStr)
                 }
             }
-
         }
     }
 

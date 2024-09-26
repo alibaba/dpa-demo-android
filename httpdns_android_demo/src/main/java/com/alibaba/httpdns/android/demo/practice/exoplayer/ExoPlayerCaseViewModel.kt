@@ -23,7 +23,7 @@ class ExoPlayerCaseViewModel(application: Application) : ResolveResultViewModel(
     lateinit var okHttpClient: OkHttpClient
 
     val playerUrl = SingleLiveData<String>().apply {
-        value = "https://storage.googleapis.com/wvmedia/clear/h264/tears/tears.mpd"
+        value = "https://ams-sdk-public-assets.oss-cn-hangzhou.aliyuncs.com/file_example_MP4_640_3MG.mp4"
     }
 
     val showRequestAndResolveResult = SingleLiveData<Boolean>().apply { value = false }

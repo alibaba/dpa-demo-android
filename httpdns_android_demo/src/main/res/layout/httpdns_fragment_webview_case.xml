@@ -46,7 +46,7 @@
                     android:layout_height="wrap_content"
                     android:paddingStart="2dp"
                     android:paddingEnd="2dp"
-                    android:text="@string/url_aliyun" />
+                    android:text="@string/url_web_example" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -123,8 +123,7 @@
                     android:layout_height="wrap_content"
                     android:text="@{viewModel.hostAndTime}"
                     android:textColor="#3D3D3D"
-                    android:textSize="12sp"
-                    tools:text="www.aliyun.com (38ms)" />
+                    android:textSize="12sp"/>
 
                 <TextView
                     android:id="@+id/tvTtl"
