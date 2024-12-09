@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="InputDialogBinding">
+        <import type="android.view.View" />
+        <variable
+            name="title"
+            type="String" />
+
+        <variable
+            name="hint"
+            type="String" />
+
+        <variable
+            name="inputAlertText"
+            type="String" />
+
+        <variable
+            name="showAlert"
+            type="Boolean" />
+
+        <variable
+            name="showAliasInput"
+            type="Boolean" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="20dp"
+        android:background="@drawable/push_shape_dialog_bg">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="@{title}"
+            tools:text="添加设备标签"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/push_color_text_black"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <ImageView
+            android:id="@+id/ivClose"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/push_close"
+            app:layout_constraintTop_toTopOf="@id/tvTitle"
+            app:layout_constraintBottom_toBottomOf="@id/tvTitle"
+            android:contentDescription="@string/push_close"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <EditText
+            android:id="@+id/etAlias"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:hint="@string/push_input_alias_hint"
+            android:ellipsize="end"
+            android:scrollHorizontally="true"
+            android:inputType="text"
+            android:overScrollMode="never"
+            android:maxLines="1"
+            android:visibility="@{showAliasInput?View.VISIBLE:View.GONE}"
+            android:paddingHorizontal="16dp"
+            android:lines="1"
+            android:textColorHint="@color/push_color_text_gray"
+            android:textSize="16sp"
+            android:textColor="@color/push_color_text_black"
+            android:layout_marginHorizontal="16dp"
+            android:background="@drawable/push_bg_input"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+        <EditText
+            android:id="@+id/etInput"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:hint="@{hint}"
+            tools:hint="@string/push_input_tag_hint"
+            android:ellipsize="end"
+            android:scrollHorizontally="true"
+            android:inputType="text"
+            android:overScrollMode="never"
+            android:maxLines="1"
+            android:paddingHorizontal="16dp"
+            android:lines="1"
+            android:textColorHint="@color/push_color_text_gray"
+            android:textSize="16sp"
+            android:textColor="@color/push_color_text_black"
+            android:layout_marginHorizontal="16dp"
+            android:background="@drawable/push_bg_input"
+            android:layout_marginTop="8dp"
+            app:layout_goneMarginTop="0dp"
+            app:layout_constraintTop_toBottomOf="@id/etAlias" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:textColor="@color/push_color_text_gray"
+            android:textSize="14sp"
+            android:visibility="@{showAlert?View.VISIBLE:View.GONE}"
+            android:text="@string/push_add_alias_alert"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etInput"/>
+
+        <View
+            android:id="@+id/v_empty"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:visibility="@{showAliasInput?View.GONE:View.VISIBLE}"
+            app:layout_constraintTop_toBottomOf="@id/etInput" />
+
+
+        <TextView
+            android:id="@+id/tvCancel"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:text="@string/push_cancel"
+            android:textColor="@color/push_color_text_black"
+            android:textSize="16sp"
+            android:layout_marginTop="116dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/push_shape_btn_cancel"
+            app:layout_constraintTop_toBottomOf="@id/v_empty"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tvConfirm"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/tvConfirm"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:text="@string/push_confirm"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/push_shape_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvCancel"
+            app:layout_constraintTop_toTopOf="@id/tvCancel"
+            android:gravity="center" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

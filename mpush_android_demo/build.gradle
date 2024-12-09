@@ -1,15 +1,23 @@
-apply plugin: 'com.android.application'
-//apply plugin: 'com.google.gms.google-services'
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+}
+
+gradle.ext {
+    pushVersion = '3.9.2'
+    thirdPushVersion = '3.9.2'
+}
 
 android {
-    compileSdkVersion 28
-
+    compileSdk 34
     defaultConfig {
-        applicationId "com.aliyun.emas.pocdemo"
-        minSdkVersion 26
-        targetSdkVersion 28
+        applicationId "com.alibaba.push.android.demo"
+        minSdkVersion 21
+        targetSdkVersion 34
         versionCode 1
         versionName "1.0"
+        buildConfigField "String", "PUSH_VERSION", "\"${gradle.pushVersion}\""
     }
 
     compileOptions {
@@ -52,28 +60,36 @@ android {
             jniLibs.srcDirs = ['libs']
         }
     }
+
+    buildFeatures {
+        viewBinding = true
+        dataBinding = true
+    }
+
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
-    //主通道依赖
-    implementation 'com.aliyun.ams:alicloud-android-push:3.7.5'
-    //辅助通道基础依赖
-    implementation 'com.aliyun.ams:alicloud-android-third-push:3.7.4'
-    //华为依赖
-    implementation 'com.aliyun.ams:alicloud-android-third-push-huawei:3.7.4'
-    //小米依赖
-    implementation 'com.aliyun.ams:alicloud-android-third-push-xiaomi:3.7.4'
-    //OPPO依赖
-    implementation 'com.aliyun.ams:alicloud-android-third-push-oppo:3.7.4'
-    //vivo依赖
-    implementation 'com.aliyun.ams:alicloud-android-third-push-vivo:3.7.4'
-    //魅族依赖
-    implementation 'com.aliyun.ams:alicloud-android-third-push-meizu:3.7.4'
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
+    implementation("androidx.viewpager2:viewpager2:1.0.0")
 
-    implementation 'com.google.firebase:firebase-messaging:23.0.2'
-    implementation 'com.google.firebase:firebase-analytics:20.1.2'
-    implementation "com.google.android.gms:play-services-auth:20.1.0"
+    implementation "com.aliyun.ams:alicloud-android-push:${gradle.pushVersion}"
+    implementation 'com.google.code.gson:gson:2.8.6'
+
+    api "com.aliyun.ams:alicloud-android-third-push:${gradle.thirdPushVersion}"
+    api "com.aliyun.ams:alicloud-android-third-push-meizu:${gradle.thirdPushVersion}"
+    api "com.aliyun.ams:alicloud-android-third-push-vivo:${gradle.thirdPushVersion}"
+    api "com.aliyun.ams:alicloud-android-third-push-oppo:${gradle.thirdPushVersion}"
+    api "com.aliyun.ams:alicloud-android-third-push-xiaomi:${gradle.thirdPushVersion}"
+    api "com.aliyun.ams:alicloud-android-third-push-huawei:${gradle.thirdPushVersion}"
+    api "com.aliyun.ams:alicloud-android-third-push-honor:${gradle.thirdPushVersion}"
+    api "com.aliyun.ams:alicloud-android-third-push-fcm:${gradle.thirdPushVersion}"
+
 }
 

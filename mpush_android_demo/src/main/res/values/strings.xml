@@ -1,96 +1,138 @@
 <resources>
 
     <!--应用程序信息文本-->
-    <string name="app_name">【阿里云移动推送】Demo程序</string>
+    <string name="app_name">移动推送Demo</string>
     <string name="app_version">v3.0.11</string>
 
-    <!--首页菜单文本-->
-    <string name="main_getdeviceid">查看DeviceID</string>
-    <string name="main_about_us">关于我们</string>
-    <string name="main_helper">帮助中心</string>
-    <string name="main_clear_tips">清空当前消息</string>
-    <string name="main_settings">设置中心</string>
-    <string name="main_doctor">诊断助手</string>
-    <string name="main_settings_notice">通知设置</string>
-    <string name="main_third_push_activity">辅助推送托管弹窗</string>
-    <string name="main_custom_notification_activity">自定义样式通知</string>
+    <string name="tab_basic">基础功能</string>
+    <string name="tab_advanced">高级功能</string>
+    <string name="tab_info">信息</string>
 
-    <!--各个Activity的标题-->
-    <string name="title_activity_about_us">关于我们</string>
-    <string name="title_activity_settings">设置中心</string>
-    <string name="title_activity_helper_page">帮助中心</string>
-    <string name="title_activity_checker">诊断助手</string>
-    <string name="title_activity_device_id">设备DeviceID</string>
-    <string name="title_activity_settings_notice">通知设置</string>
-    <string name="title_activity_third_push_notice">辅助推送弹窗</string>
-    <string name="title_activity_custom_notification">自定义样式通知</string>
+    <string name="toast_double_click_exit">再按一次退出应用</string>
 
-    <!--关于我们页面-->
-    <string name="layout_aboutus_arr">All Rights Reserved.</string>
-    <string name="layout_aboutus_company">阿里云(软件)有限公司版权所有</string>
-    <string name="layout_aboutus_copyright">Copyright © 2009 - 2016 Aliyun.com</string>
-
-    <!--帮助中心页面-->
-    <string name="layout_helpus_content">Q : 什么是用户体验Demo？\nA : 用户体验Demo就是阿里云平台为您自动创建的、用来体验云推送服务和反馈建议用的一个小Demo，您可以直接使用移动开发控制台推送消息和通知到本App，让您体验便捷、高效的推送服务。\n\nQ : 如何联系我们？\nA : App Demo相关问题，请搜索钉钉群号：11795523</string>
-
-    <!--DeviceID 页面-->
-    <string name="start_before_get">您的 DeviceID 为 ：\n</string>
-    <string name="whatisdeviceid">DeviceID是一个由云推送自动生成的一个唯一的设备序列号，用于区分不同的设备，请保护好自己的DeviceID</string>
-    <string name="whatisdeviceidtitle">什么是 DeviceID ？</string>
-
-    <!--设置中心-->
-    <string name="settings_bindaccount">绑定账号</string>
-    <string name="settings_unbindaccount">解绑账号</string>
-    <string name="inputplease">请输入帐户名</string>
-    <string name="settings_addAlias">添加别名</string>
-    <string name="settings_removeAlias">删除别名</string>
-    <string name="settings_inputAlias">请输入别名</string>
-    <string name="inputlabelplease">请输入标签名,多个标签以空格分隔</string>
-    <string name="settings_bindTagToDev">绑定标签到设备</string>
-    <string name="settings_unbindTagFromDev">删除设备标签</string>
-    <string name="settings_bindTagToAccount">绑定标签到账号</string>
-    <string name="settings_unbindTagFromAccount">删除账号标签</string>
-    <string name="settings_bindTagToAlias">绑定标签到别名</string>
-    <string name="settings_unbindTagFromAlias">删除别名标签</string>
-    <string name="settings_listTags">列出设备标签</string>
-    <string name="settings_listAliases">列出设备别名</string>
-    <string name="setting_bindPhoneNumber">绑定电话</string>
-    <string name="setting_unbindPhoneNumber">解绑电话</string>
-
-    <!--通知设置-->
-    <string name="settings_soundPathLabel">推送声音路径</string>
-    <string name="settings_large_icon_label">通知栏图标</string>
-    <string name="settings_small_icon_Label">状态栏图标</string>
-    <string name="settings_default_sound">默认声音文件路径</string>
-    <string name="settings_assign_sound">指定声音文件路径</string>
-    <string name="settings_default_large_icon">默认图标资源ID</string>
-    <string name="settings_assign_large_icon">指定图标资源</string>
-    <string name="settings_default_small_icon">默认图标资源ID</string>
-    <string name="settings_assign_small_icon">指定图标资源ID</string>
-    <string name="settings_intent_service">指定IntentService接收消息</string>
-    <string name="settings_message_receiver">指定BroadcastReceiver接收消息</string>
-    <string name="settings_basic_custom_notif">基础自定义通知</string>
-    <string name="settings_advanced_custom_notif">高级自定义通知</string>
-
-    <!--诊断专家-->
-    <string name="checker_start_service">诊断助手正在为您服务</string>
-    <string name="checker_network_success">网络连接正常</string>
-    <string name="checker_network_fail">无网络连接</string>
-    <string name="env_init_success">SDK环境初始化成功</string>
-    <string name="env_init_fail">SDk环境初始化失败</string>
-    <string name="checker_over">初步诊断结束，如果对诊断结果有疑问，请联系开发人员</string>
-
-    <!--应用初始化-->
-    <string name="sdk_init_success">赞,消息通道建立成功!</string>
-    <string name="sdk_init_failed">衰,消息通道建立失败!</string>
-    <string name="sdk_init_failed_tips">让你看文档,你不看 (=.=)\nSDK初始化失败了吧? (^ω^)\n快去看QuickStart文档! (●︿●)\n文档在Demo的压缩包中 (｡ì _ í｡)</string>
-
-    <style name="button_allgrade_content">
-        <item name="android:layout_margin">1dip</item>
-        <item name="android:background">#ffffff</item>
-        <item name="android:textSize">18sp</item>
-        <item name="android:clickable">true</item>
-        <item name="android:textColor">#413d41</item>
-    </style>
-
+    <!--基础功能-->
+    <string name="push_basic_hint">欢迎来到阿里云移动推送\nDemo,开始你的调试吧~</string>
+    <string name="push_register_receive">注册并接收推送</string>
+    <string name="content_push_channel">打开推送通道</string>
+    <string name="push_logo">移动推送logo</string>
+    <string name="push_open_channel">打开推送功能</string>
+    <string name="push_group_show">分组展示通知</string>
+    <string name="push_service_receive_notify">使用Service接收推送</string>
+    <string name="push_log_level">设置日志等级</string>
+    <string name="push_clear_notification">清除自有通道通知</string>
+    <string name="push_toast_open_push_channel_success">打开推送通道成功</string>
+    <string name="push_toast_open_push_channel_fail">打开推送通道失败，失败原因：%s</string>
+    <string name="push_toast_close_push_channel_success">关闭推送通道成功</string>
+    <string name="push_toast_close_push_channel_fail">关闭推送通道失败，失败原因：%s</string>
+    <string name="push_toast_clear_notification_success">清除所有通知成功</string>
+    <string name="push_toast_register_success">注册成功</string>
+    <string name="push_toast_register_fail">注册失败，失败原因：%s</string>
+    <string name="push_dialog_set_log_level">设置日志等级</string>
+    <string name="push_label_error">Error</string>
+    <string name="push_label_info">Info</string>
+    <string name="push_label_debug">Debug</string>
+    <string name="push_label_close_log">关闭日志</string>
+    <string name="push_cancel">取消</string>
+    <string name="push_confirm">确定</string>
+    <string name="push_close">关闭</string>
+    <string name="push_check">是否选中</string>
+    <string name="count_limit_hint">设备标签和别名数量限制说明</string>
+    <string name="push_alert">alert</string>
+    <string name="push_device_tag">设备标签</string>
+    <string name="push_look_all">查看全部</string>
+    <string name="push_add_tag">添加标签</string>
+    <string name="push_tag_length_limit">单个标签最大长度不超过129字符</string>
+    <string name="push_input_empty">输入内容为空</string>
+    <string name="push_already_add">已添加</string>
+    <string name="push_add_device_tag">添加设备标签</string>
+    <string name="push_input_tag_hint">请输入标签名称</string>
+    <string name="push_toast_add_device_tag_fail">添加设备标签失败,失败原因：%s</string>
+    <string name="push_toast_add_tag_fail">添加标签失败,失败原因：%s</string>
+    <string name="push_toast_delete_device_tag_fail">删除设备标签失败,失败原因：%s</string>
+    <string name="push_alias_set">别名设置</string>
+    <string name="push_add_alias">添加别名</string>
+    <string name="push_input_alias_hint">请输入别名</string>
+    <string name="push_toast_add_alias_fail">添加别名失败,失败原因：%s</string>
+    <string name="push_toast_delete_alias_fail">删除别名失败,失败原因：%s</string>
+    <string name="push_add_alias_tag">添加别名标签</string>
+    <string name="push_input_alias_tag_hint">请输入标签名称</string>
+    <string name="push_alias_empty">未输入别名</string>
+    <string name="push_toast_add_alias_tag_fail">添加别名标签失败,失败原因：%s</string>
+    <string name="push_toast_delete_alias_tag_fail">删除别名标签失败,失败原因：%s</string>
+    <string name="push_alias_tag">别名标签</string>
+    <string name="push_account">账号</string>
+    <string name="push_bind_account_no">未绑定账号</string>
+    <string name="push_account_tag">账号标签</string>
+    <string name="push_bind_account">绑定账号</string>
+    <string name="push_bind_account_hint">请输入账号</string>
+    <string name="push_bind_account_fail">绑定账号失败，失败原因：%s</string>
+    <string name="push_unbind_account_fail">解绑账号失败，失败原因：%s</string>
+    <string name="push_bind_account_tag">绑定账号标签</string>
+    <string name="push_bind_account_tag_hint">请输入账号标签</string>
+    <string name="push_bind_account_tag_fail">绑定账号标签失败,失败原因: %s</string>
+    <string name="push_unbind_account_tag_fail">解绑账号标签失败,失败原因: %s</string>
+    <string name="push_input_device_tag_hint">请输入设备标签</string>
+    <string name="push_message">短信通知</string>
+    <string name="push_bind_phone_no">未绑定手机号</string>
+    <string name="push_text_notification">短信通知</string>
+    <string name="push_text_notification_hint">请输入手机号</string>
+    <string name="push_toast_bind_phone_fail">绑定手机号失败,失败原因:%s</string>
+    <string name="push_toast_unbind_phone_fail">解绑手机号失败,失败原因:%s</string>
+    <string name="push_tag_limit">标签（tag）</string>
+    <string name="push_tag_limit_1">App最多支持定义1万个标签，单个标签支持的最大长度为128字符。</string>
+    <string name="push_tag_limit_2">不建议在单个标签上绑定超过十万级设备，否则，发起对该标签的推送可能需要较长的处理时间，无法保障响应速度。此种情况下，建议您采用全推方式，或将设备集合拆分到更细粒度的标签，多次调用推送接口分别推送给这些标签来避免此问题。</string>
+    <string name="push_alias_limit">别名（alias）</string>
+    <string name="push_alias_limit_1">单个设备最多添加128个别名，同一个别名最多可被添加到128个设备。</string>
+    <string name="push_alias_limit_2">别名支持的最大长度为128字节。</string>
+    <string name="push_package">com.alibaba.push.android.demo</string>
+    <string name="push_appkey">AppKey</string>
+    <string name="push_app_secret">AppSecret</string>
+    <string name="push_info_bg">信息页背景</string>
+    <string name="push_info_logo">信息页logo</string>
+    <string name="push_device_id">设备ID</string>
+    <string name="push_utdid">UTDID</string>
+    <string name="push_sdk_version">推送SDK版本号</string>
+    <string name="push_version">v%s</string>
+    <string name="push_toast_service_deal_message">service 收到了消息</string>
+    <string name="push_toast_receiver_deal_message">receiver 收到了消息</string>
+    <string name="push_toast_use_service_deal_message">使用service接收消息</string>
+    <string name="push_toast_use_receiver_deal_message">使用receiver接收消息</string>
+    <string name="push_toast_already_clear">已清除</string>
+    <string name="push_dialog_message_title">下发消息内容</string>
+    <string name="push_message_title">title:%s</string>
+    <string name="push_message_content">content:%s</string>
+    <string name="push_message_id">messageId:%s</string>
+    <string name="push_message_trace_info">traceInfo:%s</string>
+    <string name="btn_text_know">知道了</string>
+    <string name="push_tag_set">标签设置</string>
+    <string name="push_back">返回</string>
+    <string name="push_tag_name">标签名称</string>
+    <string name="push_input_tag_name">请输入标签名称</string>
+    <string name="push_tag_desc">单个标签最大长度不超过128个字符</string>
+    <string name="push_tag_target_label">添加至</string>
+    <string name="push_alias_list">别名列表</string>
+    <string name="push_tag_input_not">标签未输入</string>
+    <string name="push_get_alias_list_fail">获取别名列表失败,失败原因：%s</string>
+    <string name="push_get_device_tag_list_fail">获取设备标签列表失败,失败原因：%s</string>
+    <string name="push_useful">对自有通道、厂商通道生效</string>
+    <string name="push_usefut_emas">只对自有通道生效</string>
+    <string name="push_register_btn_success">注册并接收推送成功</string>
+    <string name="push_registering">注册中</string>
+    <string name="push_register_btn_fail">注册失败</string>
+    <string name="push_alias_no_choose">未选择别名</string>
+    <string name="push_brand_type">厂商通道类型</string>
+    <string name="push_toast_already_copy">复制成功</string>
+    <string name="push_token">Token</string>
+    <string name="push_unknow_brand">未知厂商</string>
+    <string name="push_cannot_get_token">未获取到token,需要去开放平台注册应用</string>
+    <string name="push_toast_no_register">未注册</string>
+    <string name="push_toast_delete_tag_success">删除标签成功</string>
+    <string name="push_toast_delete_alias_success">删除别名成功</string>
+    <string name="push_open_group_show_notificaion">打开分组展示通知</string>
+    <string name="push_close_group_show_notificaion">关闭分组展示通知</string>
+    <string name="push_dialog_limit_desc">限制说明</string>
+    <string name="push_unbind_first">请先解除绑定</string>
+    <string name="push_unbind">解除绑定</string>
+    <string name="push_tag_type_no_choose">未选择标签类型</string>
+    <string name="push_add_alias_alert">单个别名最大长度不超过128字节</string>
 </resources>

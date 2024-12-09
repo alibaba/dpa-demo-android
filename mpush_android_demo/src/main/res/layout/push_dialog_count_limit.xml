@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data class="CountLimitDialogBinding">
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="54dp"
+        android:background="@drawable/push_shape_dialog_bg">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="@string/push_dialog_limit_desc"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/push_color_text_black"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <ImageView
+            android:id="@+id/ivClose"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/push_close"
+            app:layout_constraintTop_toTopOf="@id/tvTitle"
+            app:layout_constraintBottom_toBottomOf="@id/tvTitle"
+            android:contentDescription="@string/push_close"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvTag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/push_tag_limit"
+            android:textSize="16sp"
+            android:textColor="@color/push_color_text_black"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivPointOne"
+            android:layout_width="6dp"
+            android:layout_height="6dp"
+            android:background="@drawable/push_shape_point"
+            app:layout_constraintTop_toBottomOf="@id/tvTag"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="19dp"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvTagLimitOne"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/push_tag_limit_1"
+            app:layout_constraintTop_toBottomOf="@id/tvTag"
+            app:layout_constraintStart_toEndOf="@id/ivPointOne"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="16dp"
+            android:textColor="@color/push_color_text_black"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/ivPointTwo"
+            android:layout_width="6dp"
+            android:layout_height="6dp"
+            android:background="@drawable/push_shape_point"
+            app:layout_constraintTop_toBottomOf="@id/tvTagLimitOne"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="19dp"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvTagLimitTwo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/push_tag_limit_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTagLimitOne"
+            app:layout_constraintStart_toEndOf="@id/ivPointTwo"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:textColor="@color/push_color_text_black"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tvAlias"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/push_alias_limit"
+            android:layout_marginTop="25dp"
+            android:textSize="16sp"
+            android:textColor="@color/push_color_text_black"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/tvTagLimitTwo"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivPointThree"
+            android:layout_width="6dp"
+            android:layout_height="6dp"
+            android:background="@drawable/push_shape_point"
+            app:layout_constraintTop_toBottomOf="@id/tvAlias"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="19dp"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvAliasLimitOne"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/push_alias_limit_1"
+            app:layout_constraintTop_toBottomOf="@id/tvAlias"
+            app:layout_constraintStart_toEndOf="@id/ivPointTwo"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="16dp"
+            android:textColor="@color/push_color_text_black"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/ivPointFour"
+            android:layout_width="6dp"
+            android:layout_height="6dp"
+            android:background="@drawable/push_shape_point"
+            app:layout_constraintTop_toBottomOf="@id/tvAliasLimitOne"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="19dp"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvAliasLimitTwo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/push_alias_limit_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAliasLimitOne"
+            app:layout_constraintStart_toEndOf="@id/ivPointFour"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:textColor="@color/push_color_text_black"
+            android:textSize="14sp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

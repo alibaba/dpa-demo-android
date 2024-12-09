@@ -14,9 +14,9 @@
     <string name="pre_resolve_host_duplicate">%s域名已经被添加至预解析列表，请勿重复添加</string>
 
     <string name="input_the_resolve_host">要解析的域名</string>
-    <string name="input_the_resolve_host_help_text">例如：help.aliyun.com</string>
+    <string name="input_the_resolve_host_help_text">例如：ams-sdk-public-assets.oss-cn-hangzhou.aliyuncs.com</string>
     <string name="input_the_request_api">要请求的接口</string>
-    <string name="input_the_request_api_help_text">例如: /document_detail/434554.html</string>
+    <string name="input_the_request_api_help_text">例如: /example-resources.txt</string>
     <string name="resolve_and_request">解析并请求</string>
     <string name="resolve_host_empty">域名不能为空</string>
     <string name="host_is_ip">域名不能是IP地址</string>
@@ -107,8 +107,8 @@
     <string name="ip_conn_case">HTTPDNS\nIP直连\n最佳实践</string>
     <string name="exo_player_case">HTTPDNS\nExoPlayer\n最佳实践</string>
     <string name="log_dns_resolve_fail">httpdns 未返回IP，走local dns</string>
-    <string name="log_resolve_result">httpdns %s 解析结果 %s</string>
     <string name="log_host_cannnot_resolve">host:%s 解析失败</string>
+    <string name="log_resolve_result">httpdns %s 解析结果 %s</string>
     <string name="log_sni_request_error">SNI request error: %s</string>
     <string name="log_sni_request_response">SNI request response: %s</string>
     <string name="log_okhttp_request_url">requestUrl: %s</string>
@@ -117,12 +117,12 @@
     <string name="toast_double_click_exit">再按一次退出应用</string>
     <string name="toast_input_content_null">输入内容为空</string>
     <string name="input_url">url输入</string>
-    <string name="input_url_example">例如: http://www.aliyun.com</string>
-    <string name="url_aliyun">https://help.aliyun.com</string>
+    <string name="input_url_example">例如: https://ams-sdk-public-assets.oss-cn-hangzhou.aliyuncs.com/example-resources.txt</string>
+    <string name="url_web_example">https://ams-sdk-public-assets.oss-cn-hangzhou.aliyuncs.com/example-resources.txt</string>
     <string name="load_url">加载URL</string>
     <string name="toast_url_empty">url is empty</string>
     <string name="toast_url_mistake">请输入正确的url</string>
     <string name="player_url">播放资源URL输入</string>
-    <string name="player_url_example">例如: https://storage.googleapis.com/wvmedia/clear/h264/tears/tears.mpd</string>
+    <string name="player_url_example">例如: https://ams-sdk-public-assets.oss-cn-hangzhou.aliyuncs.com/file_example_MP4_640_3MG.mp4</string>
     <string name="play">播放</string>
 </resources>

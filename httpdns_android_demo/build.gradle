@@ -38,7 +38,7 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
-    implementation "com.aliyun.ams:alicloud-android-httpdns:2.4.3"
+    implementation "com.aliyun.ams:alicloud-android-httpdns:2.5.0"
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'

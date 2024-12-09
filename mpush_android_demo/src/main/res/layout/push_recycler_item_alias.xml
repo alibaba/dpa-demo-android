@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data class="AliasListItemBinding" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvAlias"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            tools:text="bm1bm1bm1bm1bm1bm1bm1bm1bm1bm1bm1bm1bm1bm1bm1bm1bm1bm1bm1bm1"
+            android:lines="1"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:textSize="16sp"
+            android:textColor="@color/push_color_text_black"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

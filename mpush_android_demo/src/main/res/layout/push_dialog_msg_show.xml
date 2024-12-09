@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="MessageShowDialogBinding">
+        <variable
+            name="title"
+            type="String" />
+        <variable
+            name="content"
+            type="String" />
+        <variable
+            name="messageId"
+            type="String" />
+        <variable
+            name="traceInfo"
+            type="String" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="296dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/push_bg_dialog">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="@string/push_dialog_message_title"
+                android:textColor="#1F2024"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginTop="24dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                android:id="@+id/tvMessageTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{title}"
+                tools:text="this is title"
+                android:textColor="#384153"
+                android:textSize="13sp"
+                app:layout_constraintTop_toBottomOf="@id/tvTitle"
+                android:layout_marginTop="8dp"
+                android:layout_marginHorizontal="24dp" />
+
+            <TextView
+                android:id="@+id/tvMessageContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{content}"
+                tools:text="this is content"
+                android:textColor="#3E3D46"
+                android:textSize="13sp"
+                app:layout_constraintTop_toBottomOf="@id/tvMessageTitle"
+                android:layout_marginTop="12dp"
+                android:layout_marginHorizontal="24dp" />
+
+            <TextView
+                android:id="@+id/tvMessageId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{messageId}"
+                android:textColor="#384153"
+                android:textSize="13sp"
+                tools:text="vvvsgegr"
+                app:layout_constraintTop_toBottomOf="@id/tvMessageContent"
+                android:layout_marginTop="12dp"
+                android:layout_marginHorizontal="24dp" />
+
+            <TextView
+                android:id="@+id/tvMessageTraceInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{traceInfo}"
+                android:textColor="#384153"
+                android:textSize="13sp"
+                app:layout_constraintTop_toBottomOf="@id/tvMessageId"
+                android:layout_marginTop="12dp"
+                android:layout_marginHorizontal="24dp" />
+
+            <View
+                android:id="@+id/vDivider1"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#E6E8EB"
+                app:layout_constraintTop_toBottomOf="@id/tvMessageTraceInfo"
+                android:layout_marginTop="24dp" />
+
+            <TextView
+                android:id="@+id/tvKnow"
+                android:layout_width="0dp"
+                android:layout_height="44dp"
+                android:text="@string/btn_text_know"
+                android:textColor="#1B58F4"
+                android:textSize="16sp"
+                android:gravity="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vDivider1" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+</layout>

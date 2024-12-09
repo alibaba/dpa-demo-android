@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data class="LogLevelDialogBinding">
+
+        <variable
+            name="viewModel"
+            type="com.alibaba.push.android.demo.BasicFuncViewModel" />
+
+        <import type="com.alibaba.sdk.android.push.CloudPushService" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="20dp"
+        android:background="@drawable/push_shape_dialog_bg">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="@string/push_dialog_set_log_level"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/push_color_text_black"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <ImageView
+            android:id="@+id/ivClose"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/push_close"
+            app:layout_constraintTop_toTopOf="@id/tvTitle"
+            app:layout_constraintBottom_toBottomOf="@id/tvTitle"
+            android:contentDescription="@string/push_close"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <LinearLayout
+            android:id="@+id/llChoose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="16dp"
+                android:onClick="@{()->viewModel.setTempLogLevel(CloudPushService.LOG_ERROR)}">
+
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:contentDescription="@string/push_check"
+                    android:src="@{viewModel.tempLogLevel == CloudPushService.LOG_ERROR ? @drawable/push_check : @drawable/push_uncheck}"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/push_label_error"
+                    android:textColor="@color/push_color_text_black"
+                    android:layout_marginStart="12dp"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/color_gray"
+                android:layout_marginHorizontal="16dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="16dp"
+                android:onClick="@{()->viewModel.setTempLogLevel(CloudPushService.LOG_INFO)}">
+
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:contentDescription="@string/push_check"
+                    android:src="@{viewModel.tempLogLevel == CloudPushService.LOG_INFO ? @drawable/push_check : @drawable/push_uncheck}"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/push_label_info"
+                    android:textColor="@color/push_color_text_black"
+                    android:layout_marginStart="12dp"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/color_gray"
+                android:layout_marginHorizontal="16dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="16dp"
+                android:onClick="@{()->viewModel.setTempLogLevel(CloudPushService.LOG_DEBUG)}">
+
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:contentDescription="@string/push_check"
+                    android:src="@{viewModel.tempLogLevel == CloudPushService.LOG_DEBUG ? @drawable/push_check : @drawable/push_uncheck}"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/push_label_debug"
+                    android:textColor="@color/push_color_text_black"
+                    android:layout_marginStart="12dp"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/color_gray"
+                android:layout_marginHorizontal="16dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:onClick="@{()->viewModel.setTempLogLevel(CloudPushService.LOG_OFF)}"
+                android:paddingHorizontal="16dp">
+
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:contentDescription="@string/push_check"
+                    android:src="@{viewModel.tempLogLevel == CloudPushService.LOG_OFF ? @drawable/push_check : @drawable/push_uncheck}"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/push_label_close_log"
+                    android:textColor="@color/push_color_text_black"
+                    android:layout_marginStart="12dp"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/color_gray"
+                android:layout_marginHorizontal="16dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvCancel"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:text="@string/push_cancel"
+            android:textColor="@color/push_color_text_black"
+            android:textSize="16sp"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/push_shape_btn_cancel"
+            app:layout_constraintTop_toBottomOf="@id/llChoose"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tvConfirm"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/tvConfirm"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:text="@string/push_confirm"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/push_shape_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvCancel"
+            app:layout_constraintTop_toTopOf="@id/tvCancel"
+            android:gravity="center" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

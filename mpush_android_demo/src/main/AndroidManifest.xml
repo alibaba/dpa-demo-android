@@ -1,35 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.alibaba.cloudpushdemo">
+    package="com.alibaba.push.android.demo">
+
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <!-- Application Settings -->
     <application
-        android:name=".application.MainApplication"
+        android:name=".MainApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:usesCleartextTraffic="true"
-        tools:overrideLibrary="com.huawei.android.hms.push"
-        tools:replace="android:allowBackup">
-        <activity
-            android:name=".bizactivity.MainActivity"
-            android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:theme="@style/AppTheme">
 
         <!-- 请填写你自己的- appKey EMASDemo空间 23793506 -->
         <meta-data
             android:name="com.alibaba.app.appkey"
-            android:value="XXXXX" />
+            android:value="XXX" />
         <!-- 请填写你自己的appSecret -->
         <meta-data
             android:name="com.alibaba.app.appsecret"
-            android:value="XXXXX" />
+            android:value="XXX" />
         <meta-data
             android:name="com.huawei.hms.client.appid"
             android:value="appid=XXXXX" />
@@ -40,61 +34,40 @@
             android:name="com.vivo.push.app_id"
             android:value="XXXXX" />
 
-        <!-- 消息接收监听器 （用户可自主扩展） -->
-        <receiver
-            android:name=".component.MyMessageReceiver"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="com.alibaba.push2.action.NOTIFICATION_OPENED" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="com.alibaba.push2.action.NOTIFICATION_REMOVED" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="com.alibaba.sdk.android.push.RECEIVE" />
-            </intent-filter>
-        </receiver>
-
-        <service
-            android:name=".component.MyMessageIntentService"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="com.alibaba.push2.action.NOTIFICATION_OPENED" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="com.alibaba.push2.action.NOTIFICATION_REMOVED" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="com.alibaba.sdk.android.push.RECEIVE" />
-            </intent-filter>
-        </service>
-
-        <service
-            android:name=".FCM.AgooFirebaseMessagingService"
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:launchMode="singleInstance"
             android:exported="true">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </service>
+        </activity>
 
-        <!-- User Custom Activity -->
+        <activity android:name=".AllLabelActivity"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+
+        <activity android:name=".AddTagActivity"
+            android:theme="@style/TransparentStyle"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+
+        <activity android:name=".AliasListActivity"
+            android:theme="@style/TransparentStyle"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+
         <activity
-            android:name=".bizactivity.AboutActivity"
-            android:label="@string/title_activity_about_us" />
-        <activity
-            android:name=".bizactivity.HelperActivity"
-            android:label="@string/title_activity_helper_page" />
-        <activity
-            android:name=".bizactivity.DeviceActivity"
-            android:label="@string/title_activity_device_id" />
-        <activity
-            android:name=".bizactivity.SettingNoticeActivity"
-            android:label="@string/title_activity_settings_notice" />
-        <activity
-            android:name=".bizactivity.ThirdPushPopupActivity"
+            android:name="com.alibaba.push.android.demo.PopupPushActivity"
+            android:process="@string/aliyun_accs_target_process"
             android:exported="true"
-            android:label="@string/title_activity_third_push_notice">
-
+            android:launchMode="singleInstance">
+            <!-- 假设 ThirdPushPopupActivity 是用于接收厂商通道推送数据的辅助弹窗  -->
+            <!-- scheme 配置开始  -->
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -108,6 +81,37 @@
             </intent-filter>
             <!-- scheme 配置结束  -->
         </activity>
+
+        <receiver
+            android:name=".MyMessageReceiver"
+            android:process="@string/aliyun_accs_target_process"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.alibaba.push2.action.NOTIFICATION_OPENED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.alibaba.push2.action.NOTIFICATION_REMOVED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.alibaba.sdk.android.push.RECEIVE" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".MyMessageIntentService"
+            android:process="@string/aliyun_accs_target_process"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.alibaba.push2.action.NOTIFICATION_OPENED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.alibaba.push2.action.NOTIFICATION_REMOVED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.alibaba.sdk.android.push.RECEIVE" />
+            </intent-filter>
+        </service>
+
     </application>
 
 </manifest>
