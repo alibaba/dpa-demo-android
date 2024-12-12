@@ -3,11 +3,13 @@ package com.alibaba.push.android.demo
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.core.view.isVisible
 import com.alibaba.push.android.demo.databinding.InfoFragmentBinding
 import com.alibaba.sdk.android.push.noonesdk.PushServiceFactory
@@ -31,8 +33,22 @@ class InfoFragment : BaseFragment() {
         return binding.root
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val statusBarHeight = requireContext().getStatusBarHeight()
+        binding.vStatusBg.layoutParams?.height = statusBarHeight
+        binding.nestedScrollView.setOnScrollChangeListener { _, _, scrollY, _, _ ->
+            val alpha = if (scrollY * 1f / statusBarHeight > 1) {
+                1f
+            } else {
+                scrollY * 1f / statusBarHeight
+            }
+            binding.vStatusBg.alpha = alpha
+        }
+
+
         val service = PushServiceFactory.getCloudPushService()
         binding.tvAppKey.text = requireContext().getAppMetaData("com.alibaba.app.appkey")
         binding.tvAppSecret.text = requireContext().getAppMetaData("com.alibaba.app.appsecret")
@@ -99,10 +115,12 @@ class InfoFragment : BaseFragment() {
         if (TextUtils.isEmpty(token)) {
             binding.tvToken.isVisible = false
             binding.ivCopyToken.isVisible = false
+            binding.tvTokenLabel.isVisible = false
         }else {
             binding.tvToken.text = token
             binding.tvToken.isVisible = true
             binding.ivCopyToken.isVisible = true
+            binding.tvTokenLabel.isVisible = true
         }
     }
 
