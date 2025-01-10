@@ -67,3 +67,5 @@ const val SCHEME_DIVIDE = "://"
 const val HTTP_COOKIE = "Cookie"
 
 const val HTTP_REQUEST_GET = "GET"
+
+const val COOKIE = "cookie"

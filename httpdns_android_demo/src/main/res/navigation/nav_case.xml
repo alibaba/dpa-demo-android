@@ -25,4 +25,9 @@
         android:name="com.alibaba.httpdns.android.demo.practice.exoplayer.ExoPlayerCaseFragment"
         tools:layout="@layout/httpdns_fragment_exo_player_case" />
 
+    <fragment
+        android:id="@+id/navigation_web_okhttp"
+        android:name="com.alibaba.httpdns.android.demo.practice.webview.WebViewOkHttpCaseFragment"
+        tools:layout="@layout/httpdns_fragment_webview_case" />
+
 </navigation>

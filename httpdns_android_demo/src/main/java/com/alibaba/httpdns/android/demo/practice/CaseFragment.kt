@@ -35,6 +35,7 @@ class CaseFragment : BaseFragment<CaseBinding>() {
         binding.rvCase.addItemDecoration(CaseItemDecoration())
         binding.rvCase.adapter = CaseAdapter(mutableMapOf<Int, String>().apply {
             put(R.id.navigation_okhttp, getString(R.string.okhttp_case))
+            put(R.id.navigation_web_okhttp, getString(R.string.web_okhttp_case))
             put(R.id.navigation_webview, getString(R.string.webview_case))
             put(R.id.navigation_ip_conn, getString(R.string.ip_conn_case))
             put(R.id.navigation_exo_player, getString(R.string.exo_player_case))

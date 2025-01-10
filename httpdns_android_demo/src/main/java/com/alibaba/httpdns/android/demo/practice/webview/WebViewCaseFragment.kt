@@ -11,7 +11,6 @@ import android.webkit.WebResourceResponse
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Toast
-import androidx.core.view.get
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import com.alibaba.httpdns.android.demo.HTTP_COOKIE
